@@ -9,7 +9,7 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-      
+        
       </View>
     );
   }
@@ -21,23 +21,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ___USEFULL____FOR____DEVELOPMENT
 

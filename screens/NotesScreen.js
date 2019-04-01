@@ -1,23 +1,29 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
-const currentTitle = "Notes";
+import firebase from 'firebase';
+import { AppRegistry } from 'react-native';
+import { ApolloClient } from 'apollo-client';
+import { ApolloProvider } from 'react-apollo'; 
+ 
 
 export default class NotesScreen extends React.Component {
-  static navigationOptions = { title: currentTitle };
+  static navigationOptions = { title: "Notes" };
 
-  render() {
+  render() {  
     return (
       <View style={styles.container}>
-      
-      </View>
-    );
+        <Text style={styles.text}>Hey</Text>
+      </View> 
+    ); 
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#353535',
+  },
+  text: {
+    color: '#fff'
   }
 });

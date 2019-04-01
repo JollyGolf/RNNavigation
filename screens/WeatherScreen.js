@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { API_KEY } from '../components/WeatherSection/API_WEATHER_KEY';
 
-import Weather from '../components/Weather';
+import Weather from '../components/WeatherSection/Weather';
 import { Location, IntentLauncherAndroid } from 'expo';
 
 export default class WeatherScreen extends React.Component {

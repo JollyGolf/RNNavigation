@@ -1,36 +1,46 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import WeatherScreen from '../screens/WeatherScreen';
-import SettingsScreen from '../screens/SettingsScreen';
 import NotesScreen from '../screens/NotesScreen';
+import TaskScreen from '../screens/TaskScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 
 const HomeStack = createStackNavigator({ Home: HomeScreen });
 const WeatherStack = createStackNavigator({ Weather: WeatherScreen });
 const NotesStack = createStackNavigator({ Notes: NotesScreen });
+const TaskStack = createStackNavigator({ Task: TaskScreen });
 const SettingsStack = createStackNavigator({ Settings: SettingsScreen });
+
 
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={'md-paper' } />
+    <TabBarIcon focused={focused} name={'md-paper' }/>
   ),
-};
+}; 
 
 WeatherStack.navigationOptions = {
   tabBarLabel: 'Weather',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={'md-partly-sunny'} />
   ),
-};
+}; 
 
 NotesStack.navigationOptions = {
   tabBarLabel: 'Notes',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={'md-analytics'} />
+  ),
+}; 
+
+TaskStack.navigationOptions = {
+  tabBarLabel: 'Task',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name={'md-clipboard'} /> //md-chatbubbles
   ),
 };
 
@@ -41,9 +51,20 @@ SettingsStack.navigationOptions = {
   ),
 };
 
+
 export default createBottomTabNavigator({
-  HomeStack,
-  WeatherStack,
   NotesStack,
+  HomeStack,
+  TaskStack,
+  WeatherStack,  
   SettingsStack
+});
+
+
+const styles = StyleSheet.create({
+  icon: {
+    flex: 1,
+    backgroundColor: '#353535',
+    color: '#fff'
+  }
 });

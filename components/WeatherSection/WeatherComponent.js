@@ -8,7 +8,7 @@ export default class WeatherComponent extends React.Component{
     return ( 
       <View style={[styles.weatherContainer, { backgroundColor: `${color}`}]}>
         <View style={styles.headerContainer}>
-          <MaterialCommunityIcons size={80} name={ icon } color={'#fff'} />
+          <MaterialCommunityIcons size={80} name={`weather-${icon}`} color={'#fff'} />
           <Text style={styles.tempText}>{ t }˚</Text>
         </View>
         <View style={styles.bodyContainer}>
