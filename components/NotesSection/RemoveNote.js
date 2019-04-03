@@ -49,25 +49,30 @@ export default compose(graphql(removeNoteMutation, {name: "removeNoteMutation"})
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
     backgroundColor: '#ffe8e8',
     borderTopLeftRadius: 35,
     borderBottomLeftRadius: 35,
-    marginLeft: 15,
-    margin: 5,
-    marginRight: 0
+    marginLeft: 50,
+    margin: 10,
+    marginRight: 0,
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 3
   },
   text: {
-
-  	textAlign: 'center',
+  	textAlign: 'left',
   	fontSize: 20,
   	fontWeight: '600',
     color: 'red',
-    borderRadius: 15,
+    borderBottomLeftRadius: 15,
+    borderTopLeftRadius: 15,
     borderBottomColor: '#353535',
     borderBottomWidth: 2,
-    borderTopColor: '#353535',
-    borderTopWidth: 2,
+    borderLeftColor: '#353535',
+    borderLeftWidth: 2,
     marginBottom: 5,
+    paddingLeft: 20,
+    padding: 5
   }
 });

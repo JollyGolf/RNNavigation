@@ -6,37 +6,21 @@ import NoteDetails from './NoteDetails';
 import AddNote from './AddNote';
 import RemoveNote from './RemoveNote';
 import UpdateNote from './UpdateNote';
+import SingleNote from './SingleNote';
 
 import { getNotesQuery } from './queries/queries';
 
 class ListNotes extends React.Component {
-  constructor(props){
-  	super(props);
-  	this.state = {
-  	  selected: false
-  	}
-  }
   displayNotes(){
   	let { data } = this.props;
-  	if(!data.loading) return data.notes.map(note => 
- 	  <Text style={styles.noteName} key={ note.id } onPress={ e => { this.setState({ selected: note.id })} } >
-  	  	{ note.title }
-  	  </Text>
-  	);
+  	if(!data.loading) return data.notes.map(note => <SingleNote key={ note.id } noteId={ note.id } noteTitle={ note.title }/> );
   }
   render() {  
     return (
-      <ScrollView style={styles.container} 
-        //ref={ ref => this.scrollView = ref }
-    	//onContentSizeChange={ () => this.scrollView.scrollToEnd( { animated: true } )}
-    	>
-        <Text style={styles.text}>Your Notes:</Text>
+      <ScrollView style={styles.container}>
         {this.displayNotes()}
-        <NoteDetails noteId={ this.state.selected }/>
         <AddNote />
-        <Text></Text>
         <RemoveNote />
-        <Text></Text>
         <UpdateNote />
       </ScrollView> 
     ); 
@@ -47,26 +31,24 @@ export default graphql(getNotesQuery)(ListNotes);
 
 const styles = StyleSheet.create({
   container: {
+  	paddingTop: 15,
+  	paddingBottom: 15,
     flex: 1,
     backgroundColor: '#353535',
     color: '#fff',
-    shadowColor: 'red',
-    shadowOffset: { width: 6, height: 6 },
-    shadowOpacity: 0.8,
-    shadowRadius: 0
+    fontWeight: '600'
   },
   text: {
     color: '#fff',
-    padding: 10
-  },
-  noteName: {
-  	color: '#fff',
-  	padding: 10,
-  	margin: 10,
-  	borderWidth: 1,
-  	borderStyle: 'solid',
-  	borderColor: 'white',
-  	borderRadius: 15,
-  	backgroundColor: 'black'
+    padding: 10,
+
   }
 });
+
+
+/* In ScrollView
+
+ref={ ref => this.scrollView = ref }
+onContentSizeChange={ () => this.scrollView.scrollToEnd( { animated: true } )}
+
+*/

@@ -26,10 +26,10 @@ export default class NotesScreen extends React.Component {
   }
 
   static navigationOptions = { 
-    title: 'Notes',
+    title: 'Your Notes:',
     headerStyle: {
       backgroundColor: '#f4511e',
-      height: 30
+      height: 40
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
