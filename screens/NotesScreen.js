@@ -16,7 +16,7 @@ const cache = new InMemoryCache();
 const client = new ApolloClient({
   cache,
   link: new HttpLink({
-    uri: 'http://dc72b287.ngrok.io/graphql'
+    uri: 'http://504da45c.ngrok.io/graphql'
   }),
 });  
 const headerComponent = <View><Text>+</Text><Text>-</Text></View>;
@@ -44,7 +44,6 @@ export default class NotesScreen extends React.Component {
       <ApolloProvider client={client}>
         <View style={styles.container}>
           <ListNotes />
-          {/*<AddNote />*/}
         </View> 
       </ApolloProvider>
     ); 

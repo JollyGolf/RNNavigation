@@ -3,38 +3,38 @@ import { StyleSheet, Text, View, ScrollView, Button } from 'react-native';
 import { graphql, compose } from 'react-apollo';
 import { gql } from 'apollo-boost';
 
-import { getNotesQuery, addNoteMutation } from './queries/queries';
-import { AddForm, AddNoteOptionForm, AddformStyles, optionsAddForm } from './forms/addNoteForm';
+import { getNotesQuery, updateNoteMutation } from './queries/queries';
+import { UpdateForm, UpdateNoteOptionForm, UpdateformStyles, optionsUpdateForm } from './forms/updateNoteForm';
 
-class AddNote extends React.Component {
+class UpdateNote extends React.Component {
   submitForm = () => {
     const value = this._form.getValue();
-    console.log(value.title);
-    this.props.addNoteMutation({
+    const currTit = "Current title";
+    this.props.updateNoteMutation({
       variables: {
-      	title: value.title,
-      	description: value.content
+      	currentTitle: value.CurrentTitle,
+        newTitle: value.NewTitle,
+        description: value.NewContent
       },
       refetchQueries: [{ query: getNotesQuery}]
-    })
-  }
+    });
+  } 
   render() {  
     return (
       <View style={styles.container}>
-      	<Text style={styles.text}>Add Note</Text>
-      	<AddForm 
+      	<Text style={styles.text}>Update Note</Text>
+      	<UpdateForm 
       	  ref={c => this._form = c}
-      	  type={ AddNoteOptionForm }
-      	  option={ optionsAddForm }
+      	  type={ UpdateNoteOptionForm }
+      	  option={ optionsUpdateForm }
       	/>
-      	<Button title="Add Note" onPress={this.submitForm} />
+      	<Button title="Update Note" onPress={this.submitForm} />
       </View>
     ); 
   }
 }
 
-
-export default compose(graphql(addNoteMutation, {name: "addNoteMutation"}))(AddNote);
+export default compose(graphql(updateNoteMutation, {name: "updateNoteMutation"}))(UpdateNote);
 
 const styles = StyleSheet.create({
   container: {
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   	textAlign: 'center',
   	fontSize: 20,
   	fontWeight: '600',
-    color: 'blue',
+    color: 'green',
     borderRadius: 15,
     borderBottomColor: '#353535',
     borderBottomWidth: 2,

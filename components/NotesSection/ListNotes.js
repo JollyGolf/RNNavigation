@@ -5,6 +5,7 @@ import { graphql } from 'react-apollo';
 import NoteDetails from './NoteDetails';
 import AddNote from './AddNote';
 import RemoveNote from './RemoveNote';
+import UpdateNote from './UpdateNote';
 
 import { getNotesQuery } from './queries/queries';
 
@@ -17,7 +18,6 @@ class ListNotes extends React.Component {
   }
   displayNotes(){
   	let { data } = this.props;
-  	//console.log('data:',data);
   	if(!data.loading) return data.notes.map(note => 
  	  <Text style={styles.noteName} key={ note.id } onPress={ e => { this.setState({ selected: note.id })} } >
   	  	{ note.title }
@@ -32,11 +32,12 @@ class ListNotes extends React.Component {
     	>
         <Text style={styles.text}>Your Notes:</Text>
         {this.displayNotes()}
-        {console.log(this.state.selected)}
         <NoteDetails noteId={ this.state.selected }/>
         <AddNote />
         <Text></Text>
         <RemoveNote />
+        <Text></Text>
+        <UpdateNote />
       </ScrollView> 
     ); 
   }

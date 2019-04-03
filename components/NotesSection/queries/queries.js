@@ -35,6 +35,15 @@ const removeNoteMutation = gql`
   }
 `;
 
+const updateNoteMutation = gql`
+  mutation($currentTitle: String!, $newTitle: String!, $description: String!) {
+    updateNote(currentTitle: $currentTitle, newTitle: $newTitle, description: $description) {
+      title
+      description
+    }
+  }
+`;
+
 // note =>
 /////////////////////////////////////////////////////////////////////////////
 // book/author =>
@@ -105,4 +114,4 @@ const updateBookMutation = gql`
 `;
 
 
-export { getNoteQuery, getNotesQuery, removeNoteMutation, addNoteMutation, getAuthorsQuery, getBooksQuery, addBookMutation, getBookQuery, removeBookMutation, updateBookMutation };
+export { getNoteQuery, getNotesQuery, removeNoteMutation, addNoteMutation, updateNoteMutation, getAuthorsQuery, getBooksQuery, addBookMutation, getBookQuery, removeBookMutation, updateBookMutation };

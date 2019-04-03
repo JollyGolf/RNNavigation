@@ -10,7 +10,7 @@ class NoteDetails extends React.Component {
   	if(note) {
   	  return (
   	  	<View style={styles.container}>
-  	  	  <Text style={styles.text}>Output note details</Text>
+  	  	  <Text style={styles.text}>Note details</Text>
   	  	  <Text style={styles.text}>Title: {note.title}</Text>
   	  	  <Text style={styles.text_description}>Content: {note.description}</Text>
   	  	</View>
