@@ -49,7 +49,7 @@ class UpdateNote extends React.Component {
 export default compose(graphql(updateNoteMutation, {name: "updateNoteMutation"}))(UpdateNote);
 
 const styles = StyleSheet.create({
-  container: {
+  container: { 
     padding: 10,
     backgroundColor: '#e8f0ff',
     borderTopRightRadius: 35,
