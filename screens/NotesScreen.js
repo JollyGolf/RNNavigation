@@ -16,16 +16,13 @@ const cache = new InMemoryCache();
 const client = new ApolloClient({
   cache,
   link: new HttpLink({
-    uri: 'http://c4ddd2cd.ngrok.io/graphql'
+    uri: 'http://dc72b287.ngrok.io/graphql'
   }),
 });  
 const headerComponent = <View><Text>+</Text><Text>-</Text></View>;
 export default class NotesScreen extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      valueForRerender: ''
-    }
   }
 
   static navigationOptions = { 
@@ -47,8 +44,7 @@ export default class NotesScreen extends React.Component {
       <ApolloProvider client={client}>
         <View style={styles.container}>
           <ListNotes />
-          <AddNote rerenderParent={this.rerenderParent}/>
-          {console.log('RerenderValue:', this.state.valueForRerender)}
+          {/*<AddNote />*/}
         </View> 
       </ApolloProvider>
     ); 

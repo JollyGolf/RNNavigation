@@ -9,7 +9,6 @@ const getNotesQuery = gql`
 `;
 
 
-
 const getNoteQuery = gql`
   query($id: ID) {
     note(id: $id){
@@ -27,6 +26,18 @@ const addNoteMutation = gql`
     }
   }
 `;
+
+const removeNoteMutation = gql`
+  mutation($title: String!) {
+    removeNote(title: $title){
+      title
+    }
+  }
+`;
+
+// note =>
+/////////////////////////////////////////////////////////////////////////////
+// book/author =>
 
 const getAuthorsQuery = gql`
   {
@@ -94,4 +105,4 @@ const updateBookMutation = gql`
 `;
 
 
-export { getNoteQuery, getNotesQuery, getAuthorsQuery, getBooksQuery, addBookMutation, getBookQuery, removeBookMutation, updateBookMutation };
+export { getNoteQuery, getNotesQuery, removeNoteMutation, addNoteMutation, getAuthorsQuery, getBooksQuery, addBookMutation, getBookQuery, removeBookMutation, updateBookMutation };

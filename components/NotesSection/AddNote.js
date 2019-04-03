@@ -2,56 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Button } from 'react-native';
 import { graphql, compose } from 'react-apollo';
 import { gql } from 'apollo-boost';
-import t from 'tcomb-form-native';
 
-import { getNotesQuery } from './queries/queries';
-
-const addNoteMutation = gql`
-  mutation($title: String!, $description: String!) {
-    addNote(title: $title, description: $description){
-      title
-      description
-    }
-  }
-`;
-
-const AddForm = t.form.Form;
-
-const AddNoteOptionForm = t.struct({
-  title: t.String,
-  content: t.String
-});
-
-const AddformStyles = {
-  ...AddForm.stylesheet,
-  formGroup: {
-    normal: {
-      marginBottom: 10
-    },
-  },
-  controlLabel: {
-    normal: {
-      color: 'blue',
-      fontSize: 18,
-      marginBottom: 7,
-      fontWeight: '600'
-    },
-    error: {
-      color: 'red',
-      fontSize: 18,
-      marginBottom: 7,
-      fontWeight: '600'
-    }
-  }
-};
-
-const optionsAddForm = {
-  fields: {
-  	title: { error: 'Input title, Please' },
-  	content: { error: 'Input content, Please' }
-  },
-  stylesheet: AddformStyles,
-};
+import { getNotesQuery, addNoteMutation } from './queries/queries';
+import { AddForm, AddNoteOptionForm, AddformStyles, optionsAddForm } from './forms/addNoteForm';
 
 class AddNote extends React.Component {
   submitForm = () => {
@@ -67,7 +20,7 @@ class AddNote extends React.Component {
   render() {  
     return (
       <View style={styles.container}>
-      	<Text>Add Note</Text>
+      	<Text style={styles.text}>Add Note</Text>
       	<AddForm 
       	  ref={c => this._form = c}
       	  type={ AddNoteOptionForm }
@@ -84,13 +37,20 @@ export default compose(graphql(addNoteMutation, {name: "addNoteMutation"}))(AddN
 
 const styles = StyleSheet.create({
   container: {
-    //justifyContent: 'center',
-    padding: 20,
+    padding: 10,
     backgroundColor: '#ffffff',
   },
   text: {
-    color: '#fff',
-    padding: 10
+  	textAlign: 'center',
+  	fontSize: 20,
+  	fontWeight: '600',
+    color: 'blue',
+    borderRadius: 15,
+    borderBottomColor: '#353535',
+    borderBottomWidth: 2,
+    borderTopColor: '#353535',
+    borderTopWidth: 2,
+    marginBottom: 5,
   },
   noteName: {
   	color: '#fff',

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { graphql } from 'react-apollo';
 
 import NoteDetails from './NoteDetails';
+import AddNote from './AddNote';
 
 import { getNotesQuery } from './queries/queries';
 
@@ -25,12 +26,14 @@ class ListNotes extends React.Component {
   render() {  
     return (
       <ScrollView style={styles.container} 
-        ref={ ref => this.scrollView = ref }
-    	onContentSizeChange={ () => this.scrollView.scrollToEnd( { animated: true } )}>
+        //ref={ ref => this.scrollView = ref }
+    	//onContentSizeChange={ () => this.scrollView.scrollToEnd( { animated: true } )}
+    	>
         <Text style={styles.text}>Your Notes:</Text>
         {this.displayNotes()}
         {console.log(this.state.selected)}
         <NoteDetails noteId={ this.state.selected }/>
+        <AddNote />
       </ScrollView> 
     ); 
   }
