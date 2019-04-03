@@ -4,6 +4,7 @@ import { graphql } from 'react-apollo';
 
 import NoteDetails from './NoteDetails';
 import AddNote from './AddNote';
+import RemoveNote from './RemoveNote';
 
 import { getNotesQuery } from './queries/queries';
 
@@ -34,6 +35,8 @@ class ListNotes extends React.Component {
         {console.log(this.state.selected)}
         <NoteDetails noteId={ this.state.selected }/>
         <AddNote />
+        <Text></Text>
+        <RemoveNote />
       </ScrollView> 
     ); 
   }
