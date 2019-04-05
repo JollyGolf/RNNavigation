@@ -3,21 +3,21 @@ import { Platform, StyleSheet } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
+import CurrencyScreen from '../screens/CurrencyScreen';
 import WeatherScreen from '../screens/WeatherScreen';
 import NotesScreen from '../screens/NotesScreen';
 import TaskScreen from '../screens/TaskScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
-const HomeStack = createStackNavigator({ Home: HomeScreen });
+const CurrencyStack = createStackNavigator({ Currency: CurrencyScreen });
 const WeatherStack = createStackNavigator({ Weather: WeatherScreen });
 const NotesStack = createStackNavigator({ Notes: NotesScreen });
 const TaskStack = createStackNavigator({ Task: TaskScreen });
 const SettingsStack = createStackNavigator({ Settings: SettingsScreen });
 
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+CurrencyStack.navigationOptions = {
+  tabBarLabel: 'Currency',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={'md-paper' }/>
   ),
@@ -53,8 +53,8 @@ SettingsStack.navigationOptions = {
 
 
 export default createBottomTabNavigator({
+  CurrencyStack,
   NotesStack,
-  HomeStack,
   TaskStack,
   WeatherStack,  
   SettingsStack

@@ -16,7 +16,7 @@ const cache = new InMemoryCache();
 const client = new ApolloClient({
   cache,
   link: new HttpLink({
-    uri: 'http://504da45c.ngrok.io/graphql'
+    uri: 'http://e91e3483.ngrok.io/graphql'
   }),
 });  
 const headerComponent = <View><Text>+</Text><Text>-</Text></View>;
@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#353535',
+    paddingBottom: 10
   },
   text: {
     color: '#fff'
