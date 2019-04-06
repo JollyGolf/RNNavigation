@@ -16,7 +16,7 @@ const cache = new InMemoryCache();
 const client = new ApolloClient({
   cache,
   link: new HttpLink({
-    uri: 'http://e91e3483.ngrok.io/graphql'
+    uri: 'http://d4a23c85.ngrok.io/graphql'
   }),
 });  
 const headerComponent = <View><Text>+</Text><Text>-</Text></View>;

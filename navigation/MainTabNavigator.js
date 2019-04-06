@@ -1,63 +1,62 @@
 import React from 'react';
 import { Platform, StyleSheet } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator, createTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
 import CurrencyScreen from '../screens/CurrencyScreen';
 import WeatherScreen from '../screens/WeatherScreen';
 import NotesScreen from '../screens/NotesScreen';
 import TaskScreen from '../screens/TaskScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import HolidaysScreen from '../screens/HolidaysScreen';
 
 const CurrencyStack = createStackNavigator({ Currency: CurrencyScreen });
 const WeatherStack = createStackNavigator({ Weather: WeatherScreen });
 const NotesStack = createStackNavigator({ Notes: NotesScreen });
 const TaskStack = createStackNavigator({ Task: TaskScreen });
-const SettingsStack = createStackNavigator({ Settings: SettingsScreen });
+const HolidaysStack = createStackNavigator({ Holidays: HolidaysScreen });
 
 
 CurrencyStack.navigationOptions = {
   tabBarLabel: 'Currency',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={'md-paper' }/>
+    <TabBarIcon typeIcon='ionicons' focused={focused} name={'md-paper' }/>
   ),
 }; 
 
 WeatherStack.navigationOptions = {
   tabBarLabel: 'Weather',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={'md-partly-sunny'} />
+    <TabBarIcon typeIcon='ionicons' focused={focused} name={'md-partly-sunny'} />
   ),
 }; 
 
 NotesStack.navigationOptions = {
   tabBarLabel: 'Notes',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={'md-analytics'} />
+    <TabBarIcon typeIcon='ionicons' focused={focused} name={'md-analytics'} />
   ),
 }; 
 
 TaskStack.navigationOptions = {
   tabBarLabel: 'Task',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={'md-clipboard'} /> //md-chatbubbles
+    <TabBarIcon typeIcon='ionicons' focused={focused} name={'md-clipboard'} /> //md-chatbubbles
   ),
 };
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+HolidaysStack.navigationOptions = {
+  tabBarLabel: 'Holidays',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={'md-options'} />
+    <TabBarIcon typeIcon='materialicons'focused={focused} name={'date-range'} /> //md-call md-keypad md-planet
   ),
 };
-
 
 export default createBottomTabNavigator({
+  HolidaysStack,
   CurrencyStack,
   NotesStack,
   TaskStack,
-  WeatherStack,  
-  SettingsStack
+  WeatherStack 
 });
 
 
