@@ -3,18 +3,27 @@ import { Platform, StyleSheet } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator, createTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
+
+import VerifyScreen from '../screens/VerifyScreen';
 import CurrencyScreen from '../screens/CurrencyScreen';
 import WeatherScreen from '../screens/WeatherScreen';
 import NotesScreen from '../screens/NotesScreen';
 import TaskScreen from '../screens/TaskScreen';
 import HolidaysScreen from '../screens/HolidaysScreen';
 
+const VerifyStack = createStackNavigator({ Verify: VerifyScreen });
 const CurrencyStack = createStackNavigator({ Currency: CurrencyScreen });
 const WeatherStack = createStackNavigator({ Weather: WeatherScreen });
 const NotesStack = createStackNavigator({ Notes: NotesScreen });
 const TaskStack = createStackNavigator({ Task: TaskScreen });
 const HolidaysStack = createStackNavigator({ Holidays: HolidaysScreen });
 
+VerifyStack.navigationOptions = {
+  tabBarLabel: 'Verify',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon typeIcon='materialicons' focused={focused} name={'phone-locked'} /> //md-call md-keypad md-planet
+  ),
+};
 
 CurrencyStack.navigationOptions = {
   tabBarLabel: 'Currency',
@@ -52,6 +61,7 @@ HolidaysStack.navigationOptions = {
 };
 
 export default createBottomTabNavigator({
+  VerifyStack,
   HolidaysStack,
   CurrencyStack,
   NotesStack,
